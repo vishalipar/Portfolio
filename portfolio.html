@@ -237,5 +237,133 @@
         </div>
       </div>
     </div>
+    
+    <div class="flex items-center h-screen w-full">
+      <div class="h-[90%] w-[70%] mx-auto font-['Roboto']">
+        <p class='text-[#2DEF57]'>「 TESTIMONIALS 」</p>
+        <p class='text-4xl w-[40%] mt-9'>Honest Feedback From Valued People</p>
+        
+        <section id='scroll-container' class="flex overflow-x-auto w-[85%] space-x-6 scroll-smooth mx-auto" style="scrollbar-width:none;-ms-overflow-style:none;">
+          <div id='s1' class="flex justify-between h-[51vh] min-w-full mt-16">
+            <div class="h-full w-[37%]">
+              <img class='h-full w-auto mx-auto object-cover grayscale' src="static/images/atul.jpg" alt="">
+            </div>
+            <div class="w-[58%]">
+              <div class="flex gap-1 h-6 w-full">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/half_star.png" alt="">
+              </div>
+              <p class='flex flex-col gap-9 mt-6 text-xl'>
+                <span>Vishal delivered exactly what our hotel needed — a clean, fast, and mobile-friendly website for Hotel Swami Nashta Center and Mess. The online menu, contact options, and clear information have made it easier for guests to reach us and place inquiries, and we’ve heard great feedback from customers about the design.</span>
+                <span>— Atul Shinde, <br>
+                      Owner, Hotel Swami Nashta Center and Mess</span>
+              </p>
+            </div>
+          </div>
+          <div id='s2' class="flex justify-between h-[51vh] min-w-full mt-16">
+            <div class="h-full w-[37%]">
+              <img class='h-full w-auto mx-auto object-cover grayscale' src="static/images/habib.png" alt="">
+            </div>
+            <div class="w-[58%]">
+              <div class="flex gap-1 h-6 w-full">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/half_star.png" alt="">
+              </div>
+              <p class='flex flex-col gap-9 mt-6 text-xl'>
+                <span>Vishal Ipar is a bright and dedicated Computer Engineering student with strong fundamentals in programming and problem-solving. He has shown great enthusiasm for learning new technologies and consistently delivers quality work in both academic and project settings.</span>
+                <span>– Prof. Adnan H.A. <br>
+                  Department of Computer Engineering,  <br>
+                  S.N.D. College of engineering.</span>
+              </p>
+            </div>
+          </div>
+          <div id='s3' class="flex justify-between h-[51vh] min-w-full mt-16">
+            <div class="h-full w-[37%]">
+              <img class='h-full w-auto mx-auto object-cover grayscale' src="static/images/kurhe.png" alt="">
+            </div>
+            <div class="w-[58%]">
+              <div class="flex gap-1 h-6 w-full">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/full_star.png" alt="">
+                <img class='h-full w-auto ' src="static/stars/half_star.png" alt="">
+              </div>
+              <p class='flex flex-col gap-4 mt-6 text-xl'>
+                <span>I am pleased to recommend Vishal Ipar, a dedicated and hardworking Computer Engineering student. Throughout the academic period, he consistently demonstrated strong technical skills, logical thinking, and a keen interest in learning emerging technologies. Vishal has performed exceptionally well in both theoretical and practical aspects, showing great potential for future growth in software development and engineering. I am confident that he will excel in any professional environment. </span>
+                <span>
+                  - Kurhe P.V. <br>
+                  Assistant Professor, Department of Computer Engineering
+                  S.N.D. College of engineering</span>
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        <div class="flex justify-between mt-20">
+          <div class="w-[33%]"></div>
+          <div class="flex gap-2 mx-auto">
+            <button onclick="scrollToSection('s1')" class="dot w-2 h-2 rounded-full"></button>
+            <button onclick="scrollToSection('s2')" class="dot w-2 h-2 rounded-full"></button>
+            <button onclick="scrollToSection('s3')" class="dot w-2 h-2 rounded-full"></button>
+          </div>
+          <div class="flex justify-end gap-4 w-[33%]">
+            <button onclick="prevSection()"
+              class="text-stone-600 hover:text-[#2DEF57C7] text-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            </button>
+            <button onclick="nextSection()"
+              class="text-stone-600 hover:text-[#2DEF57C7] text-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      const container = document.getElementById("scroll-container");
+      const dots = document.querySelectorAll(".dot");
+      const totalSections = container.children.length;
+      let currentIndex = 0;
+  
+      function setActiveDot(index) {
+        dots.forEach((dot, i) => {
+          dot.classList.remove("bg-[#2DEF57C7]", "bg-stone-500");
+          dot.classList.add(i === index ? "bg-[#2DEF57C7]" : "bg-stone-500");
+        });
+        currentIndex=index;
+      }
+    
+      function scrollToSection(index) {
+        container.children[index].scrollIntoView({
+          behavior: "smooth",
+          inline: "start"
+        });
+        setActiveDot(index);
+      }
+      
+      function nextSection() {
+        scrollToSection(currentIndex + 1);
+      }
+    
+      function prevSection() {
+        scrollToSection(currentIndex - 1);
+      }
+    
+      container.addEventListener("scroll", () => {
+        const index = Math.round(container.scrollLeft / container.offsetWidth);
+        setActiveDot(index);
+      });
+    
+      // default active dot
+      setActiveDot(0);
+    </script>
   </body>
 </html>
