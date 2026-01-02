@@ -243,7 +243,12 @@
         <p class='text-[#2DEF57]'>「 TESTIMONIALS 」</p>
         <p class='text-3xl md:text-4xl w-full md:w-[40%] mt-6 md:mt-9'>Honest Feedback From Valued People</p>
         
-        <section id='scroll-container' class="flex overflow-x-auto w-full md:w-[85%] space-x-6 scroll-smooth mx-auto" style="scrollbar-width:none;-ms-overflow-style:none;">
+        <section
+  id="scroll-container"
+  class="flex overflow-x-auto overflow-y-hidden scroll-smooth min-w-full"
+  style="scrollbar-width:none;-ms-overflow-style:none;"
+>
+
           <div id='s1' class="flex flex-col md:flex-row justify-between h-fit md:h-[51vh] min-w-full mt-4 md:mt-16">
             <div class="h-full w-[65%] md:w-[37%] mx-auto">
               <img class='h-[30vh] md:h-full w-auto mx-auto object-cover grayscale' src="static/images/atul.jpg" alt="">
@@ -309,16 +314,22 @@
         <div class="flex justify-between mt-8 md:mt-20">
           <div class="w-[33%]"></div>
           <div class="flex gap-2 mx-auto">
-            <button onclick="scrollToSection('s1')" class="dot w-2 h-2 rounded-full"></button>
-            <button onclick="scrollToSection('s2')" class="dot w-2 h-2 rounded-full"></button>
-            <button onclick="scrollToSection('s3')" class="dot w-2 h-2 rounded-full"></button>
+            <button onclick="scrollHorizontal(0)" class="dot w-2 h-2 rounded-full"></button>
+            <button onclick="scrollHorizontal(1)" class="dot w-2 h-2 rounded-full"></button>
+            <button onclick="scrollHorizontal(2)" class="dot w-2 h-2 rounded-full"></button>
           </div>
           <div class="flex justify-end gap-4 w-[33%]">
-            <button onclick="prevSection()"
+            <button
+              type="button"
+              tabindex="-1"
+              onclick="prevSection()"
               class="text-stone-600 hover:text-[#2DEF57C7] text-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
             </button>
-            <button onclick="nextSection()"
+            <button
+              type="button"
+              tabindex="-1"
+              onclick="nextSection()"
               class="text-stone-600 hover:text-[#2DEF57C7] text-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
@@ -368,40 +379,40 @@
     <script>
       const container = document.getElementById("scroll-container");
       const dots = document.querySelectorAll(".dot");
-      const totalSections = container.children.length;
-      let currentIndex = 0;
-  
-      function setActiveDot(index) {
-        dots.forEach((dot, i) => {
-          dot.classList.remove("bg-[#2DEF57C7]", "bg-stone-500");
-          dot.classList.add(i === index ? "bg-[#2DEF57C7]" : "bg-stone-500");
+      const total = container.children.length;
+      let index = 0;
+    
+      function updateDots(i) {
+        dots.forEach((d, j) => {
+          d.classList.toggle("bg-[#2DEF57C7]", j === i);
+          d.classList.toggle("bg-stone-500", j !== i);
         });
-        currentIndex=index;
+        index = i;
       }
     
-      function scrollToSection(index) {
-        container.children[index].scrollIntoView({
-          behavior: "smooth",
-          inline: "start"
-        });
-        setActiveDot(index);
+      function scrollHorizontal(i) {
+        if (i < 0 || i >= total) return;
+    
+        container.scrollLeft = i * container.clientWidth;
+        updateDots(i);
       }
-      
+    
       function nextSection() {
-        scrollToSection(currentIndex + 1);
+        scrollHorizontal(index + 1);
       }
     
       function prevSection() {
-        scrollToSection(currentIndex - 1);
+        scrollHorizontal(index - 1);
       }
     
       container.addEventListener("scroll", () => {
-        const index = Math.round(container.scrollLeft / container.offsetWidth);
-        setActiveDot(index);
+        const i = Math.round(container.scrollLeft / container.clientWidth);
+        updateDots(i);
       });
     
-      // default active dot
-      setActiveDot(0);
+      updateDots(0);
     </script>
+    
+    
   </body>
 </html>
